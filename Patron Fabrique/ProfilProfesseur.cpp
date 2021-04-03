@@ -29,6 +29,11 @@ public:
         return this->typeProfil;
     }
 
+    void setInfosProfil(const Renseignements& infosProfil) override
+    {
+        this->infosProfil = infosProfil;
+    }
+
 };
 
 #endif // !PROFILPROFESSEUR_H_INLCLUDED

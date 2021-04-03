@@ -8,8 +8,9 @@ struct Renseignements
 {
     std::string nom;
     std::string prenom;
-    int telephone;
-    std::string adresseCourriel;
+    int telephone = 0000000000;
     std::string adresseDomicile;
+    std::string adresseCourriel;
+    
 };
 #endif // RENSEIGNEMENTS_H_

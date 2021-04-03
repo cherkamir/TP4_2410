@@ -6,6 +6,7 @@
 #include "Application.cpp"
 #include "Profil.cpp"
 #include "ProfilEleve.cpp"
+#include "Renseignements.h"
 
 class AppEleve : public Application
 {

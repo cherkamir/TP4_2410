@@ -13,11 +13,9 @@ public:
 
     virtual Profil* methodeFabrique() const = 0;
 
-    std::string creationObjet() const {
+    Profil* creationObjet() const {
         Profil* profil = this->methodeFabrique();
-        std::string resultat = "L'application nous envoie le message : " + profil->Message();
-        delete profil;
-        return resultat;
+        return profil;
     }
 };
 

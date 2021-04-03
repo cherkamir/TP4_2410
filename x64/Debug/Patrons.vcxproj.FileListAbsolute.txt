@@ -1,2 +1,0 @@
-C:\Users\toyos\Desktop\Polytechnique_Montreal\Session H2021\LOG2410\Travaux Pratiques\TP4\Implémentation C++\Patrons\x64\Debug\Patrons.exe
-C:\Users\toyos\Desktop\Polytechnique_Montreal\Session H2021\LOG2410\Travaux Pratiques\TP4\Implémentation C++\Patrons\x64\Debug\Patrons.pdb

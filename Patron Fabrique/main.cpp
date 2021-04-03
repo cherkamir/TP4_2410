@@ -4,6 +4,7 @@
 #include "ProfilProfesseur.cpp"
 #include "AppEleve.cpp"
 #include "AppProfesseur.cpp"
+#include "Renseignements.h"
 
 using namespace std;
 
@@ -16,12 +17,12 @@ int main()
 {
     cout << "Application lancee. Creation d un profil d eleve ..." << endl;
     Application* app = new AppEleve();
-    Client(*app);
+    // Client(*app);
     cout << endl;
 
     cout << "Application lancee. Creation d un profil de professeur ..." << endl;
     Application* app2 = new AppProfesseur();
-    Client(*app2);
+    //Client(*app2);
     cout << endl;
 
     delete app;

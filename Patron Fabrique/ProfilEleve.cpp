@@ -9,12 +9,11 @@ class ProfilEleve : public Profil
 {
 private:
     Renseignements infosProfil;
-    std::string typeProfil;
+    std::string typeProfil = "Eleve";
 
 
 public:
     ProfilEleve() = default;
-    //ProfilEleve(Renseignements infosProfil, std::string typeProfil) = default;
 
     std::string Message() const { 
         return "{Un profil d Eleve vient d etre cree avec succes!}";
@@ -28,5 +27,10 @@ public:
         return this->typeProfil;
     }
 
+    void setInfosProfil(const Renseignements& infosProfil) override {
+        this->infosProfil = infosProfil;
+    }
 };
 #endif // !PROFILELEVE_H_INCLUDED
+
+
