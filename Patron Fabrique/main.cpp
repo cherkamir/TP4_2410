@@ -2,31 +2,85 @@
 #include "Application.cpp"
 #include "ProfilEleve.cpp"
 #include "ProfilProfesseur.cpp"
-#include "AppEleve.cpp"
-#include "AppProfesseur.cpp"
 #include "Renseignements.h"
 
 using namespace std;
 
-void Client(const Application& app)
+void Client(const Profil& profil, char& input)
+{    
+    string type;
+    cout << "Rentrez le type de profil." << endl;
+    cin >> type;
+
+    cout << "Rentrez dans l ordre votre nom, prenom, telephone, adresseDomicile et votre adresseCourriel:" << endl;
+    Renseignements infosProfil;
+
+    cin >> infosProfil.nom;
+    cin >> infosProfil.prenom;
+    cin >> infosProfil.telephone;
+    cin >> infosProfil.adresseDomicile;
+    cin >> infosProfil.adresseCourriel;
+    
+    profil.afficher(infosProfil, type);
+}
+
+/// Affiche le menu principal
+void afficherMenu()
 {
-    cout << "Je ne sais pas comment est ecrite la classe Application mais elle marche! " << app.creationObjet() << endl;
+    cout << "(a) Creer un profil d Eleve\n"
+        << "(b) Creer un profil de Professeur\n"
+        << "(c) Quitter\n"
+        << endl;
+}
+
+/// Nettoye le tampon 
+void nettoyerTampon()
+{
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << endl;
 }
 
 int main()
 {
-    cout << "Application lancee. Creation d un profil d eleve ..." << endl;
-    Application* app = new AppEleve();
-    // Client(*app);
-    cout << endl;
+    char input = 'd';
+    unique_ptr<Application> app1 = make_unique<AppEleve>();
+    unique_ptr<Application> app2 = make_unique<AppProfesseur>();
 
-    cout << "Application lancee. Creation d un profil de professeur ..." << endl;
-    Application* app2 = new AppProfesseur();
-    //Client(*app2);
-    cout << endl;
+    unique_ptr<Profil> profil1 = app1->methodeFabrique();
+    unique_ptr<Profil> profil2 = app2->methodeFabrique();
 
-    delete app;
-    delete app2;
+    do
+    {
+        afficherMenu();
+        cout << "Choisir une option :  ";
+        cin >> input;
+        nettoyerTampon();
+        switch (input)
+        {
+        case 'a':
+            cout << "Application lancee. Creation d un profil d eleve ..." << endl;
+            
+            Client(*profil1, input);
+            cout << endl;
+            break;
+        case 'b':
+            cout << "Application lancee. Creation d un profil de professeur ..." << endl;
+            
+            Client(*profil2, input);
+            cout << endl;
+            break;
+        case 'c':
+            cout << "Fermeture de l'application" << endl;
+            break;
+        default:
+            cout << "Cette option n existe pas, reessayez." << endl;
+        }
+
+    } 
+    while (input != 'c');
+
+
     return 0;
 
 }
