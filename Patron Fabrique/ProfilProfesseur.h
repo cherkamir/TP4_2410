@@ -28,10 +28,10 @@ public:
         return this->typeProfil;
     }
 
-    void setInfosProfil(const Renseignements& infosProfil, std::string& typeProfil) override
+    void setInfosProfil(const Renseignements& infosProfil) override
     {
         this->infosProfil = infosProfil;
-        this->typeProfil = typeProfil;
+     
     }
     void afficher(const Renseignements& infosProfil) const override
     {
