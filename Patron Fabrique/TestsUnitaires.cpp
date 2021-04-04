@@ -29,8 +29,8 @@ void nettoyerTampon()
     cout << endl;
 }
 
-
-Renseignements Client(const Profil& profil)
+// Permet de rentrer les informations personnelles dans le profil crée
+Renseignements Client(Profil& profil)
 {
     cout << "Rentrez dans l ordre votre nom, prenom, telephone, adresseDomicile et votre adresseCourriel:" << endl;
     Renseignements infosProfil;
@@ -40,19 +40,23 @@ Renseignements Client(const Profil& profil)
     getline(cin, infosProfil.telephone, '\n');
     getline(cin, infosProfil.adresseDomicile, '\n');
     getline(cin, infosProfil.adresseCourriel, '\n');
+    profil.setInfosProfil(infosProfil);
     return infosProfil;
 
 }
 
+// Affiche un menu et permet à l'utilisateur de modifier certains champs d'information dans son profil
 Renseignements Client2(Renseignements& infosProfil)
 {
     char input;
+    // Effectuer cette fontion tant que l'on ne choisit pas de quitter 'q'
         do
         {
         afficherMenu();
-        cout << "Choisir le renseignement a changer :  ";
+        cout << "Choisir le renseignement a changer ou quitter";
         cin >> input;
         nettoyerTampon();
+        // Selon le caractère entre, le switch-case nous redirige vers l'option choisie
         switch (input)
         {
         case 'a':
@@ -84,7 +88,7 @@ Renseignements Client2(Renseignements& infosProfil)
 
         }
     while (input != 'q');
-        return infosProfil;
+        return infosProfil;  // Retourne les renseignements modifiés du profil
 }
 
 TEST_CASE("L'application de  l'eleve lui cree un profil Eleve")
@@ -120,6 +124,7 @@ TEST_CASE("Le professeur peut rentrer ses infos personnelles pour creer un profi
     REQUIRE(infosProfil.telephone == "514 504-3504");
     REQUIRE(infosProfil.adresseDomicile == "3500 Chemin de La Croix");
     REQUIRE(infosProfil.adresseCourriel == "test.fabrique@patron.ca");
+    profilP->afficher();
     cout << endl;
 
 }
@@ -131,8 +136,10 @@ TEST_CASE("L'eleve peut changer certaines informations a propos de son profil")
     cout << "Test qui vérifie que l'utlisateur peut modifier les renseignements de son profil." << endl 
          << "Creation d'un nouveau profil Etudiant ..." << endl << endl;
     Renseignements infosEleve = Client(*profilE);
+    profilE->afficher();
     cout << "Modification de l'adresse et du courriel ..." << endl;
     infosEleve = Client2(infosEleve);
+    profilE->afficher();
     profilE->setInfosProfil(infosEleve);
     REQUIRE(infosEleve.adresseDomicile == "3500 Cross Road Street");
     REQUIRE(infosEleve.adresseCourriel == "test.factory@pattern.com");

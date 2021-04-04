@@ -13,6 +13,7 @@ private:
 public:
     ProfilProfesseur() = default;
 
+    // Message de confirmation de création d'un profil d'Eleve
     std::string Message() const
     {
         return "{Une profil de Professeur vient d etre cree avec succes!}";
@@ -33,13 +34,13 @@ public:
         this->infosProfil = infosProfil;
      
     }
-    void afficher(const Renseignements& infosProfil) const override
+    void afficher() const override
     {
         std::cout << "Type de profil : " + this->typeProfil << std::endl;
-        std::cout << "Nom: " << infosProfil.nom << "    " << "Prenom: " << infosProfil.prenom << std::endl
-            << "Telephone: " << infosProfil.telephone << std::endl
-            << "adresse: " << infosProfil.adresseDomicile << std::endl
-            << "courriel: " << infosProfil.adresseCourriel << std::endl;
+        std::cout << "Nom: " << this->infosProfil.nom << "    " << "Prenom: " << this->infosProfil.prenom << std::endl
+            << "Telephone: " << this->infosProfil.telephone << std::endl
+            << "adresse: " << this->infosProfil.adresseDomicile << std::endl
+            << "courriel: " << this->infosProfil.adresseCourriel << std::endl;
     }
 };
 

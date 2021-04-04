@@ -3,6 +3,7 @@
 
 #include <string>
 
+// Structure représentant les informations personnelles de chaque profil
 struct Renseignements
 {
     std::string nom;
