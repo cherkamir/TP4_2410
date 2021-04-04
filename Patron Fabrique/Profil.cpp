@@ -17,7 +17,7 @@ public:
     virtual Renseignements getInfosProfil() const = 0;
     virtual std::string getTypeProfil() const = 0;
     virtual void setInfosProfil(const Renseignements& infosProfil, std::string& typeProfil) = 0;
-    virtual void afficher(const Renseignements& infosProfil, std::string type) const = 0;
+    virtual void afficher(const Renseignements& infosProfil) const = 0;
     virtual ~Profil() = default;
 };
 

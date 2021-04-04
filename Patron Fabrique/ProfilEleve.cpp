@@ -30,14 +30,16 @@ public:
         this->typeProfil = typeProfil;
     }
 
-    void afficher(const Renseignements& infosProfil, std::string type) const override
+    void afficher(const Renseignements& infosProfil) const override
     {
-        std::cout << "Type de profil : " + type << std::endl;
-        std::cout << "Nom: " + infosProfil.nom << "    " << "Prenom: " + infosProfil.prenom << std::endl
-            << "Telephone: " + infosProfil.telephone
-            << "adresse: " + infosProfil.adresseDomicile
-            << "courriel: " + infosProfil.adresseCourriel << std::endl;
+        std::cout << "Type de profil : " + this->typeProfil << std::endl;
+        std::cout << "Nom: " << infosProfil.nom << "    " << "Prenom: " << infosProfil.prenom << std::endl
+            << "Telephone: " <<  infosProfil.telephone << std::endl
+            << "adresse: " << infosProfil.adresseDomicile << std::endl
+            << "courriel: " << infosProfil.adresseCourriel << std::endl;
     }
+
+
 };
 #endif // !PROFILELEVE_H_INCLUDED
 

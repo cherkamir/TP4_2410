@@ -1,27 +1,26 @@
+#define CATCH_CONFIG_MAIN  //
 #include "Profil.cpp"
 #include "Application.cpp"
 #include "ProfilEleve.cpp"
 #include "ProfilProfesseur.cpp"
 #include "Renseignements.h"
+#include "catch.hpp"
 
 using namespace std;
 
-void Client(const Profil& profil, char& input)
+void Client(const Profil& profil)
 {    
-    string type;
-    cout << "Rentrez le type de profil." << endl;
-    cin >> type;
-
     cout << "Rentrez dans l ordre votre nom, prenom, telephone, adresseDomicile et votre adresseCourriel:" << endl;
     Renseignements infosProfil;
 
-    cin >> infosProfil.nom;
-    cin >> infosProfil.prenom;
-    cin >> infosProfil.telephone;
-    cin >> infosProfil.adresseDomicile;
-    cin >> infosProfil.adresseCourriel;
+    getline(cin,infosProfil.nom, '\n');
+    getline(cin, infosProfil.prenom, '\n');
+    getline(cin, infosProfil.telephone, '\n');
+    getline(cin, infosProfil.adresseDomicile, '\n');
+    getline(cin, infosProfil.adresseCourriel, '\n');
+    cout << endl;
+    profil.afficher(infosProfil);
     
-    profil.afficher(infosProfil, type);
 }
 
 /// Affiche le menu principal
@@ -43,6 +42,7 @@ void nettoyerTampon()
 
 int main()
 {
+    
     char input = 'd';
     unique_ptr<Application> app1 = make_unique<AppEleve>();
     unique_ptr<Application> app2 = make_unique<AppProfesseur>();
@@ -61,13 +61,15 @@ int main()
         case 'a':
             cout << "Application lancee. Creation d un profil d eleve ..." << endl;
             
-            Client(*profil1, input);
+            Client(*profil1);
+            cout << app1->creationObjet();
             cout << endl;
             break;
         case 'b':
             cout << "Application lancee. Creation d un profil de professeur ..." << endl;
             
-            Client(*profil2, input);
+            Client(*profil2);
+            cout <<app2->creationObjet();
             cout << endl;
             break;
         case 'c':
@@ -79,8 +81,13 @@ int main()
 
     } 
     while (input != 'c');
-
+    
 
     return 0;
 
+}
+
+
+void TestsUnitaires()
+{
 }
