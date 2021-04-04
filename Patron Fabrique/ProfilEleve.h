@@ -2,7 +2,7 @@
 #ifndef PROFILELEVE_H_INCLUDED
 #define PROFILELEVE_H_INCLUDED
 
-#include "Profil.cpp"
+#include "Profil.h"
 #include <string>
 
 class ProfilEleve : public Profil

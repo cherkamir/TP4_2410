@@ -2,7 +2,7 @@
 #ifndef PROFILPROFESSEUR_H_INLCLUDED
 #define PROFILPROFESSEUR_H_INCLUDED
 
-#include "Profil.cpp"
+#include "Profil.h"
 
 class ProfilProfesseur : public Profil
 {

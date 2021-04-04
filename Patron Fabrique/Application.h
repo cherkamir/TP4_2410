@@ -2,9 +2,9 @@
 #ifndef APPLICATION_H_INCLUDED
 #define APPLICATION_H_INCLUDED
 
-#include "Profil.cpp"
-#include "ProfilProfesseur.cpp"
-#include "ProfilEleve.cpp"
+#include "Profil.h"
+#include "ProfilProfesseur.h"
+#include "ProfilEleve.h"
 #include <iostream>
 #include <string>
 
