@@ -95,6 +95,7 @@ TEST_CASE("L'application de  l'eleve lui cree un profil Eleve")
 {
     unique_ptr<Application> app = make_unique<AppEleve>();
     unique_ptr<Profil> profilE = app->methodeFabrique();
+    cout << profilE->Message() << endl;
     REQUIRE(profilE->Message() == "{Un profil d Eleve vient d etre cree avec succes!}");
 }
 
@@ -102,6 +103,7 @@ TEST_CASE("L'application du professeur lui cree un profil de Professeur")
 {
     unique_ptr<Application> app = make_unique<AppProfesseur>();
     unique_ptr<Profil> profilP = app->methodeFabrique();
+    cout << profilP->Message() << endl;
     REQUIRE(profilP->Message() == "{Une profil de Professeur vient d etre cree avec succes!}");
 }
 
@@ -109,6 +111,7 @@ TEST_CASE("Le profil d'eleve possede le bon type apres sa creation")
 {
     unique_ptr<Application> app = make_unique<AppEleve>();
     string type = app->methodeFabrique()->getTypeProfil();
+    cout << type << endl;
     REQUIRE(type == "Eleve");
 }
 
